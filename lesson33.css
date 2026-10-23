@@ -1,0 +1,30 @@
+/* LESSON 33 — Banksy (street-art skin: brick walls, spray splats, night alleys)
+   Requires: colors_and_type.css, lesson5/6/9/25/26/30.css, lesson32.css. Use with the gh-* text rules. */
+:root{--bk-red:#E9524A;--bk-brick-night:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80'%3E%3Cpath d='M0 1H160M0 41H160M2 0V40M82 40V80' stroke='%23ffffff' stroke-opacity='.07' stroke-width='4' fill='none'/%3E%3C/svg%3E");
+--bk-brick-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80'%3E%3Cpath d='M0 1H160M0 41H160M2 0V40M82 40V80' stroke='%23ffffff' stroke-opacity='.85' stroke-width='5' fill='none'/%3E%3C/svg%3E");
+--bk-brick-cream:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='80'%3E%3Cpath d='M0 1H160M0 41H160M2 0V40M82 40V80' stroke='%230C5A48' stroke-opacity='.06' stroke-width='4' fill='none'/%3E%3C/svg%3E");}
+.slide.bk-night{background:var(--bk-brick-night),radial-gradient(50% 40% at 85% 0%,rgba(255,216,107,.18) 0%,transparent 70%),linear-gradient(180deg,#7A1E1A 0%,#B83A32 100%);}
+.slide.bk-wall{background:var(--bk-brick-light),linear-gradient(180deg,#FFD3CF 0%,#FFE8E5 100%);}
+.slide.bk-pink{background:var(--bk-brick-light),#FFB8C6;}
+.slide.bk-night .eyebrow.gold{box-shadow:var(--sp-drop);}
+.types .tcard .th{min-height:96px;display:grid;place-items:center;}
+.types .tcard .tq{font-size:27px;}.types .tcard .tx span{font-size:24px;}
+.slide.bk-paper{background:var(--bk-brick-cream),var(--sp-cream);}
+/* spray-paint splats around the edges (filled by script) */
+.splats{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.splats i{position:absolute;border-radius:50%;}
+.splats i b{position:absolute;left:44%;top:60%;width:12%;border-radius:0 0 999px 999px;background:inherit;}
+/* little stencil tag label */
+.stencil-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--pd-font-display);font-size:26px;letter-spacing:2px;color:var(--sp-ink);background:#fff;border:4px dashed var(--sp-ink);border-radius:16px;padding:8px 20px;transform:rotate(-2deg);}
+/* adjective & adverb type cards */
+.types{display:grid;gap:18px;max-width:1740px;}
+.types.five{grid-template-columns:repeat(5,minmax(0,1fr));}
+.types.four{grid-template-columns:repeat(4,minmax(0,1fr));}
+.tcard{background:#fff;border:5px solid var(--sp-ink);border-radius:26px;box-shadow:var(--sp-drop);padding:0 0 20px;overflow:hidden;display:flex;flex-direction:column;}
+.tcard:nth-child(even){transform:rotate(1deg);}.tcard:nth-child(odd){transform:rotate(-1deg);}
+.tcard .th{background:var(--hue);border-bottom:5px solid var(--sp-ink);padding:16px 18px 14px;font-family:var(--pd-font-display);font-size:30px;line-height:1.05;color:var(--sp-ink);text-align:center;}
+.tcard .tq{font-size:24px;font-weight:700;line-height:1.3;margin:16px 20px 0;color:var(--sp-ink);text-align:center;}
+.tcard .tx{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 14px 0;}
+.tcard .tx span{font-size:22px;font-weight:700;background:var(--hue);border:3px solid var(--sp-ink);border-radius:999px;padding:3px 14px;color:var(--sp-ink);}
+.qlist u{text-decoration:underline;text-decoration-color:var(--bk-red);text-decoration-thickness:5px;text-underline-offset:6px;font-weight:700;}
+.photo-cap.dark{color:var(--sp-ink);}

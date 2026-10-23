@@ -1,0 +1,52 @@
+/* ============================================================
+   LESSON 6 — "Boots on the Red Plain" · SPACE MISSION
+   Small deltas on top of lesson5.css (the full space system).
+   New grammar topics this lesson:
+     • Interrupted speech (speaker in the middle)  → gold speech
+     • Setting paragraphs (the senses)             → violet "sense"
+     • Commas (lists · openers · clarity)          → aqua "comma"
+   Plus a "⚡ Mission Challenge" callout the story uses inline.
+   British English throughout.
+   ============================================================ */
+
+/* ---- extra grammar colour codes ---- */
+.g-mid    { color:var(--sp-coral-dk); font-weight:700; }  /* the reporting clause: said Theo */
+.g-comma  { color:#1F8F89; font-weight:700; }             /* commas */
+.g-sense  { color:#6A45D8; font-weight:700; }             /* the senses */
+.g-open   { color:var(--sp-mars-dk); font-weight:700; }   /* sentence openers */
+
+/* an inserted-comma chip used in the teaching examples */
+.cma { display:inline-block; color:#0f6d68; background:var(--sp-tint-aqua);
+  border:3px solid #2BA8A2; border-radius:8px; padding:0 .28em; margin:0 .04em;
+  font-weight:800; line-height:1; box-shadow:0 3px 0 rgba(20,12,48,.18); transform:translateY(-1px); }
+
+/* highlight runs in the story */
+.hl-mid   { color:#a02d63; background:var(--sp-tint-coral); box-shadow:0 0 0 2px #FFB3D1 inset; }
+.hl-comma { color:#0f6d68; background:var(--sp-tint-aqua);  box-shadow:0 0 0 2px #9BE7E2 inset; }
+.hl-set   { color:#3f2596; background:var(--sp-tint-lav);   box-shadow:0 0 0 2px #C9B8FF inset; }
+
+/* ============================================================
+   ⚡ MISSION CHALLENGE — inline story task callout
+   ============================================================ */
+.mission { position:relative; margin-top:24px; background:var(--sp-tint-gold);
+  border:5px solid var(--sp-ink); border-radius:28px; box-shadow:var(--sp-shadow-pop);
+  padding:26px 36px 28px; transform:rotate(-.5deg); }
+.mission .mtag { display:inline-flex; align-items:center; gap:11px;
+  font-family:var(--pd-font-display); font-weight:700; font-size:25px; color:#fff; letter-spacing:.04em;
+  text-transform:uppercase; background:var(--sp-mars); border:4px solid var(--sp-ink); border-radius:999px;
+  padding:8px 24px; box-shadow:var(--sp-drop); transform:rotate(.8deg); }
+.mission .mbody { font-size:28px; font-weight:600; line-height:1.4; color:var(--sp-ink); margin:16px 0 0; }
+.mission .mbody strong { color:var(--sp-mars-dk); }
+/* the scrambled / unpunctuated string the pupil must fix */
+.scramble { display:inline-block; font-style:italic; font-weight:700; color:var(--sp-ink);
+  background:#fff; border:3px dashed var(--sp-mars); border-radius:12px; padding:4px 16px; margin-top:6px; }
+
+/* small "→ answer goes here" write line inside cards */
+.ans-line { display:block; height:0; border-bottom:5px dotted #c9a23a; margin:22px 0 4px; }
+
+/* two-up worked-example chips for the speech teach slide */
+.ex-card { background:#fff; border:5px solid var(--sp-ink); border-radius:26px;
+  box-shadow:var(--sp-shadow-card); padding:26px 32px; }
+.ex-card .ex-h { font-family:var(--pd-font-display); font-weight:700; font-size:27px; color:var(--sp-ink); margin:0; }
+.ex-card .ex-eg { font-size:30px; font-weight:700; line-height:1.4; margin:14px 0 0; color:var(--sp-ink); }
+.ex-card .ex-note { font-size:23px; font-weight:600; color:var(--pd-ink-soft); margin:12px 0 0; font-style:italic; }

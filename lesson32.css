@@ -1,0 +1,92 @@
+/* LESSON 32 — Studio Ghibli (sky, meadow & forest skin)
+   Requires: colors_and_type.css, lesson5.css, lesson6.css, lesson9.css, lesson25.css, lesson26.css, lesson30.css */
+:root{
+--sp-ink:#0C5A48;--sp-ink-soft:#2F6F5E;--sp-cream:#FFFCF0;--sp-white:#fff;
+--sp-gold:#FFD86B;--sp-gold-dk:#0C5A48;
+--sp-coral:#FFB8C6;--sp-coral-dk:#C2456A;
+--sp-aqua:#8FD3F4;--sp-aqua-dk:#1E78B4;
+--sp-mars:#E9524A;--sp-mars-dk:#B83A32;
+--sp-violet:#0C5A48;
+--sp-lav:#C9B6FF;--sp-lav-soft:#E9E0FF;
+--sp-tint-lav:#F1ECFF;--sp-tint-gold:#FFF5CC;--sp-tint-coral:#FFE8EE;--sp-tint-aqua:#E3F5FD;--sp-tint-mars:#FFE1DE;
+--gh-leaf:#84E6A4;--gh-grass:#5CB85C;--gh-tint-leaf:#E4F8EA;
+--sp-shadow-pop:0 14px 0 rgba(12,90,72,.2),0 26px 50px rgba(12,90,72,.28);
+--sp-shadow-card:0 10px 30px rgba(12,90,72,.22);
+--sp-drop:0 7px 0 rgba(12,90,72,.3);
+}
+/* FOREST — deep green glade with fireflies: title, dividers, closing */
+.slide.gh-forest{color:#fff;background:
+radial-gradient(55% 45% at 50% 105%,rgba(132,230,164,.35) 0%,transparent 70%),
+radial-gradient(40% 35% at 85% 0%,rgba(255,216,107,.22) 0%,transparent 70%),
+linear-gradient(180deg,#0A3A2F 0%,#0F4D3D 55%,#17664C 100%);}
+/* SKY — bright blue sky, drifting clouds, green hills */
+.slide.gh-sky{color:var(--sp-ink);background:
+radial-gradient(ellipse 62% 16% at 18% 106%,#6CC46A 99%,transparent 100%),
+radial-gradient(ellipse 58% 20% at 88% 110%,#4FAE5A 99%,transparent 100%),
+linear-gradient(180deg,#6EC2EE 0%,#A8DDF6 55%,#DDF3FB 100%);}
+/* MEADOW — leaf green with little wildflowers */
+.slide.gh-meadow{color:var(--sp-ink);background-color:#9EDC86;
+background-image:radial-gradient(circle,#fff 0 8px,transparent 9px),radial-gradient(circle,#FFD86B 0 6px,transparent 7px),radial-gradient(circle,#FFB8C6 0 5px,transparent 6px);
+background-size:170px 170px,170px 170px,170px 170px;background-position:0 0,85px 85px,42px 120px;}
+/* CREAM — paper with falling leaves, for busy grammar slides */
+.slide.gh-cream{background:var(--sp-cream);color:var(--sp-ink);}
+.slide.gh-sky .lead,.slide.gh-meadow .lead,.slide.gh-cream .lead{color:var(--sp-ink);text-shadow:none;}
+.slide.gh-forest .lead{color:#fff;text-shadow:0 2px 14px rgba(3,30,22,.6);}
+.slide.gh-forest .photo-cap{color:#fff;}
+.slide.gh-sky .photo-cap,.slide.gh-meadow .photo-cap{background:#fff;border:3px solid var(--sp-ink);border-radius:999px;padding:4px 16px;display:table;margin:12px auto 0;white-space:nowrap;}
+.slide .motif{filter:drop-shadow(0 12px 16px rgba(12,90,72,.35));}
+.sp-card.tint-aqua{background:var(--sp-tint-aqua);}.sp-card.tint-leaf{background:var(--gh-tint-leaf);}
+.subhead.gold{background:var(--sp-ink);}.subhead.green{background:var(--sp-aqua-dk);}.subhead.mars{background:var(--sp-mars-dk);}
+.gh-plate{background:#fff;border:5px solid var(--sp-ink);border-radius:28px;box-shadow:var(--sp-shadow-pop);padding:20px 30px;}
+.gh-forest h2.head{color:#fff;}
+.gh-sky .eyebrow,.gh-meadow .eyebrow{box-shadow:var(--sp-drop);}
+.gh-sky .sec-name,.gh-meadow .sec-name{background:#fff;border:5px solid var(--sp-ink);border-radius:20px;padding:10px 22px;flex:0 1 auto;}
+.eyebrow.leaf{background:var(--gh-leaf);color:var(--sp-ink);}
+
+/* drifting clouds (filled by script) */
+.clouds{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.clouds i{position:absolute;background:#fff;border-radius:999px;opacity:.92;animation:drift linear infinite alternate;}
+.clouds i::before,.clouds i::after{content:"";position:absolute;background:#fff;border-radius:50%;}
+.clouds i::before{width:52%;height:150%;left:14%;bottom:30%;}
+.clouds i::after{width:38%;height:120%;right:12%;bottom:35%;}
+@keyframes drift{from{transform:translateX(-30px);}to{transform:translateX(30px);}}
+/* fireflies (filled by script) */
+.lights{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.lights i{position:absolute;border-radius:50%;animation:glow ease-in-out infinite alternate;}
+@keyframes glow{from{opacity:.2;transform:translate(0,0) scale(.7);}to{opacity:1;transform:translate(8px,-14px) scale(1.15);}}
+/* falling leaves & petals around the edges (filled by script) */
+.leaves{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.leaves i{position:absolute;border-radius:0 100% 0 100%;}
+.leaves i.petal{border-radius:50% 50% 50% 0;}
+
+/* section round chips */
+.round-chip{display:flex;align-items:center;gap:14px;font-family:var(--pd-font-display);font-size:28px;color:var(--sp-ink);
+background:#fff;border:5px solid var(--sp-ink);border-radius:999px;padding:12px 28px 12px 14px;box-shadow:var(--sp-drop);transform:rotate(var(--tilt,-1.5deg));}
+.round-chip b{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--hue);border:4px solid var(--sp-ink);font-weight:400;}
+.part-h .pt{flex:1;min-width:0;}
+.quote{font-size:27px;font-weight:700;line-height:1.4;color:var(--sp-ink);margin:0;font-style:italic;}
+.ablank,.rewrite{border-color:#9CCBB6;}.writelines span{border-color:#9CCBB6;}
+.qlist b{color:var(--sp-mars-dk);}
+
+/* synonym / antonym pair cards */
+.pair{display:flex;align-items:center;gap:18px;font-family:var(--pd-font-display);font-size:40px;color:var(--sp-ink);}
+.pair .w{background:#fff;border:5px solid var(--sp-ink);border-radius:20px;padding:10px 24px;box-shadow:var(--sp-drop);}
+.pair .op{font-size:46px;}
+/* spelling cards */
+.spell{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 26px;margin-top:22px;max-width:1740px;}
+.spell li{list-style:none;display:flex;align-items:center;gap:18px;background:#fff;border:4px solid var(--sp-ink);border-radius:22px;padding:10px 20px;box-shadow:var(--sp-drop);}
+.spell .sn{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--hue,var(--gh-leaf));border:4px solid var(--sp-ink);font-family:var(--pd-font-display);font-size:20px;}
+.spell .sw{flex:none;width:300px;font-family:var(--pd-font-display);font-size:32px;color:var(--sp-ink);letter-spacing:.5px;}
+.spell .sm{font-size:22px;font-weight:700;line-height:1.3;color:var(--sp-ink-soft);}
+/* made-up film poster */
+.poster{position:relative;width:560px;height:800px;flex:none;border:8px solid var(--sp-ink);border-radius:20px;overflow:hidden;box-shadow:var(--sp-shadow-pop);transform:rotate(-2deg);
+background:linear-gradient(180deg,#24418F 0%,#5B7BD6 38%,#F6B26B 72%,#FFD86B 100%);color:#fff;text-align:center;display:flex;flex-direction:column;align-items:center;padding:34px 30px 26px;}
+.poster>*{position:relative;}.poster>div:first-child{position:absolute;}
+.poster .ptitle{font-family:var(--pd-font-display);font-size:56px;line-height:1;color:#FFF5CC;text-shadow:0 4px 0 #1B2F6B;margin:6px 0 0;}
+.poster .ptag{font-size:24px;font-weight:700;font-style:italic;margin:12px 0 0;}
+.poster .ppic{flex:1;width:100%;margin:22px 0 18px;border:4px dashed rgba(255,255,255,.85);border-radius:18px;display:grid;place-items:center;padding:20px;font-size:21px;font-weight:700;line-height:1.35;background:rgba(255,255,255,.12);}
+.poster .pstars{font-size:30px;color:#FFF5CC;letter-spacing:4px;}
+.poster .prev{font-size:22px;font-weight:700;margin:4px 0 12px;}
+.poster .pfoot{font-size:17px;font-weight:700;background:rgba(12,40,90,.55);border-radius:999px;padding:6px 16px;}
+.poster .pc{position:absolute;background:#FFF1C9;border-radius:999px;opacity:.9;}
+@media (prefers-reduced-motion:reduce){.lights i,.clouds i{animation:none;}}

@@ -1,0 +1,44 @@
+/* LESSON 36 — Keith Haring (Subway-chalk pop skin: bold red blocks, dotted "ground" strips, energy marks, subway tiles)
+   Requires: colors_and_type.css, lesson5/6/9/25/26/30/32/33/34/35.css. Use with the gh-* text rules. */
+:root{--kh-red:#B83A32;--kh-ground:radial-gradient(circle,#0C5A48 0 9px,transparent 10px);}
+/* POP — bold Haring red with a lemon polka-dot ground strip (title, dividers, closing) */
+.slide.kh-pop{background:linear-gradient(180deg,#B83A32 0%,#B83A32 100%);}
+.slide.kh-pop::after,.slide.kh-lemon::after{content:"";position:absolute;left:0;right:0;bottom:0;height:56px;border-top:7px solid #0C5A48;background-color:#FFD86B;background-image:var(--kh-ground);background-size:58px 28px;background-position:0 0;z-index:1;pointer-events:none;}
+.slide.kh-lemon::after{background-color:#8FD3F4;height:46px;}
+/* LEMON — sunny yellow for article + rule slides */
+.slide.kh-lemon{background:#FFF5CC;}
+/* TILES — subway-tile wall with a coral stripe, for practice slides */
+.slide.kh-tiles{background-color:#FFFCF0;background-image:linear-gradient(0deg,#E9524A 0 22px,#0C5A48 22px 27px,transparent 27px),linear-gradient(90deg,rgba(143,211,244,.55) 0 3px,transparent 3px),linear-gradient(0deg,rgba(143,211,244,.55) 0 3px,transparent 3px);background-size:100% 100%,90px 45px,90px 45px;background-repeat:no-repeat,repeat,repeat;}
+.slide.kh-paper{background:var(--sp-cream);}
+.slide.kh-pop .eyebrow.gold{box-shadow:var(--sp-drop);}
+.slide.kh-pop .lead{color:#fff;text-shadow:0 2px 12px rgba(60,10,8,.4);}
+.slide.kh-pop .photo-cap{color:#fff;}
+.slide.kh-lemon .sec-name,.slide.kh-tiles .sec-name{background:#fff;border:5px solid var(--sp-ink);border-radius:20px;padding:10px 22px;flex:0 1 auto;}
+.slide.kh-lemon .photo-cap,.slide.kh-tiles .photo-cap,.slide.kh-paper .photo-cap{background:#fff;border:3px solid var(--sp-ink);border-radius:999px;padding:4px 16px;display:table;margin:12px auto 0;white-space:nowrap;color:var(--sp-ink);}
+.subhead.red{background:var(--kh-red);}
+/* frames shrink-wrap the whole picture — never cropped */
+.kh-frame{width:fit-content;max-width:100%;margin:0 auto;border:8px solid #0C5A48;border-radius:26px;overflow:hidden;box-shadow:0 14px 0 rgba(12,90,72,.3);background:#fff;}
+.kh-frame img{display:block;width:auto;height:auto;max-width:100%;max-height:var(--h,600px);}
+
+/* energy marks around the edges (filled by script): triple dashes + a few emoji */
+.marks{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.marks i{position:absolute;font-style:normal;line-height:1;animation:khwig 2.4s ease-in-out infinite alternate;}
+.marks i.mk{width:1em;height:.2em;border-radius:1em;background:var(--c,#0C5A48);box-shadow:0 .42em 0 var(--c,#0C5A48),0 -.42em 0 var(--c,#0C5A48);transform:rotate(var(--r,0deg));}
+.marks i.mk.two{box-shadow:0 .42em 0 var(--c,#0C5A48);}
+@keyframes khwig{0%{translate:0 0;}100%{translate:0 -6px;}}
+
+/* radiant spokes behind a sticker or image */
+.rays{position:absolute;border-radius:50%;background:repeating-conic-gradient(#0C5A48 0 5deg,transparent 5deg 22deg);-webkit-mask:radial-gradient(circle,transparent 0 58%,#000 59% 72%,transparent 73%);mask:radial-gradient(circle,transparent 0 58%,#000 59% 72%,transparent 73%);pointer-events:none;animation:khspin 30s linear infinite;}
+@keyframes khspin{to{transform:rotate(360deg);}}
+
+/* clash pair for oxymorons */
+.clash{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.clash .w{font-family:var(--pd-font-display);font-size:58px;color:var(--sp-ink);background:#fff;border:6px solid var(--sp-ink);border-radius:22px;padding:6px 26px;box-shadow:var(--sp-drop);transform:rotate(var(--tilt,-2deg));}
+.clash .bolt{font-size:56px;}
+/* preposition groups */
+.prep-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.prep-grid .sp-card{padding:22px 26px;}
+.prep-grid h3{font-family:var(--pd-font-display);font-weight:400;font-size:32px;margin:0 0 10px;color:var(--sp-ink);}
+.prep-grid p{font-size:25px;font-weight:700;line-height:1.5;margin:0;color:var(--sp-ink);}
+.gap-line{display:inline-block;min-width:200px;border-bottom:4px dotted rgba(12,90,72,.5);height:1.1em;vertical-align:baseline;margin:0 8px;}
+@media (prefers-reduced-motion:reduce){.marks i,.rays{animation:none;}}

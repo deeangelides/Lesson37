@@ -1,0 +1,396 @@
+/* ============================================================
+   PLAYFUL DETECTIVE — Design Tokens
+   Teaching materials for live online English lessons (Grade 4).
+   Bright, cheerful, storybook-mystery vibe. British English.
+   Link this file in every slide / worksheet you create.
+   ============================================================ */
+
+/* Fonts: Bowlby One SC (headings, loud display) + Quicksand (body) — both self-hosted.
+   Baloo 2 (CDN) stays as a display fallback only. */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+/* Self-hosted brand display faces */
+@font-face {
+  font-family: 'Bowlby One SC';
+  src: url('fonts/BowlbyOneSC-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Self-hosted body face — Quicksand (Light→Bold) */
+@font-face {
+  font-family: 'Quicksand';
+  src: url('fonts/Quicksand-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('fonts/Quicksand-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('fonts/Quicksand-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('fonts/Quicksand-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('fonts/Quicksand-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- COLOUR: Primary ---------- */
+  --pd-yellow:        #FFFF95;  /* pale lemon */
+  --pd-orange:        #FF931E;  /* bright orange */
+
+  /* ---------- COLOUR: Secondary ---------- */
+  --pd-sky:           #AEFBFF;  /* pale aqua */
+  --pd-teal:          #83EEA6;  /* signature mint green */
+
+  /* ---------- COLOUR: Accents ---------- */
+  --pd-coral:         #FDCDDC;  /* soft pink */
+  --pd-grape:         #DD316F;  /* rose / magenta (bold accent, light text) */
+  --pd-pink-bright:   #FF7BAC;  /* bright pink */
+  --pd-blue:          #3FA9F5;  /* sky blue */
+  --pd-green:         #7AC943;  /* leaf green */
+  --pd-red:           #FF1D25;  /* red (sparingly) */
+
+  /* ---------- COLOUR: Backgrounds ---------- */
+  --pd-cream:         #F9F8F4;  /* warm off-white — neutral page bg */
+  --pd-pale-blue:     #83EEA6;  /* mint green — vivid colour-block bg */
+  --pd-white:         #FFFFFF;
+  /* vivid full-bleed "block" backgrounds (brand swatches) */
+  --pd-bg-mint:       #83EEA6;
+  --pd-bg-aqua:       #AEFBFF;
+  --pd-bg-pink:       #FDCDDC;
+  --pd-bg-lemon:      #FFFF95;
+  --pd-bg-rose:       #DD316F;
+  --pd-bg-teal:       #02594E;
+  --pd-bg-teal-dk:    #004256;
+
+  /* ---------- COLOUR: Ink / text ---------- */
+  --pd-ink:           #02594E;  /* deep pine teal — bold text & outlines */
+  --pd-ink-soft:      #2C6A5E;  /* muted teal — secondary text */
+  --pd-paw:           #02594E;  /* paw-print / footprint (pine teal) */
+
+  /* ---------- COLOUR: tints (soft fills for cards/badges) ---------- */
+  --pd-yellow-tint:   #FCFCCB;
+  --pd-orange-tint:   #FFE6CC;
+  --pd-sky-tint:      #E6FEFF;
+  --pd-teal-tint:     #D6F8E2;
+  --pd-coral-tint:    #FDE7EF;
+  --pd-grape-tint:    #FBD6E3;
+
+  /* ---------- Semantic colour roles ---------- */
+  --pd-bg:            var(--pd-cream);
+  --pd-fg:            var(--pd-ink);
+  --pd-fg-muted:      var(--pd-ink-soft);
+  --pd-primary:       var(--pd-teal);     /* mint green leads */
+  --pd-primary-ink:   var(--pd-ink);      /* text on mint */
+  --pd-cta:           var(--pd-teal);
+  --pd-cta-ink:       var(--pd-ink);      /* dark teal text on mint */
+  --pd-link:          var(--pd-ink);
+
+  /* ---------- TYPE families ---------- */
+  --pd-font-display:  'Bowlby One SC', 'Baloo 2', system-ui, sans-serif;
+  --pd-font-body:     'Quicksand', 'Nunito', system-ui, sans-serif;
+
+  /* ---------- TYPE scale (large, screen-share friendly) ---------- */
+  --pd-text-hero:     72px;   /* slide hero title */
+  --pd-text-h1:       54px;
+  --pd-text-h2:       40px;
+  --pd-text-h3:       30px;
+  --pd-text-lead:     26px;   /* intro / lead body */
+  --pd-text-body:     22px;   /* default body */
+  --pd-text-small:    18px;   /* captions, labels */
+  --pd-text-badge:    18px;
+
+  --pd-weight-body:   500;
+  --pd-weight-strong: 800;
+  --pd-leading-tight: 1.1;
+  --pd-leading-body:  1.5;
+  --pd-tracking-head: 0.02em;
+
+  /* ---------- SPACING (8pt-ish, generous) ---------- */
+  --pd-space-1: 8px;
+  --pd-space-2: 16px;
+  --pd-space-3: 24px;
+  --pd-space-4: 32px;
+  --pd-space-5: 48px;
+  --pd-space-6: 64px;
+  --pd-space-7: 96px;
+
+  /* ---------- RADII (rounded, sticker-like) ---------- */
+  --pd-radius-sm:  12px;
+  --pd-radius-md:  20px;
+  --pd-radius-lg:  32px;
+  --pd-radius-xl:  44px;
+  --pd-radius-pill: 999px;
+
+  /* ---------- BORDERS (chunky, friendly outlines) ---------- */
+  --pd-border:      3px solid var(--pd-ink);
+  --pd-border-w:    3px;
+  --pd-border-thick: 4px solid var(--pd-ink);
+
+  /* ---------- SHADOWS (soft, slightly playful drop) ---------- */
+  --pd-shadow-sm:  0 4px 0 rgba(45,42,102,0.12);
+  --pd-shadow-md:  0 8px 0 rgba(45,42,102,0.14);
+  --pd-shadow-soft: 0 10px 28px rgba(45,42,102,0.18);
+  --pd-shadow-sticker: 0 6px 0 rgba(45,42,102,0.22);
+  /* layered "pop" shadow — chunky offset + soft ambient, for dimensional cards */
+  --pd-shadow-pop: 0 14px 0 rgba(45,42,102,0.12), 0 26px 50px rgba(45,42,102,0.24);
+
+  /* ---------- Playful tilts (apply to stickers/badges) ---------- */
+  --pd-tilt-l: -3deg;  /* @kind other */
+  --pd-tilt-r:  3deg;  /* @kind other */
+}
+
+/* ============================================================
+   BASE ELEMENT STYLES
+   ============================================================ */
+.pd-body, body.pd {
+  margin: 0;
+  background: var(--pd-bg);
+  color: var(--pd-fg);
+  font-family: var(--pd-font-body);
+  font-weight: var(--pd-weight-body);
+  font-size: var(--pd-text-body);
+  line-height: var(--pd-leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.pd-hero,
+.pd h1, h1.pd {
+  font-family: var(--pd-font-display);
+  font-weight: 800;
+  letter-spacing: var(--pd-tracking-head);
+  line-height: var(--pd-leading-tight);
+  color: var(--pd-fg);
+  margin: 0;
+}
+.pd-hero { font-size: var(--pd-text-hero); }
+.pd h1, h1.pd { font-size: var(--pd-text-h1); }
+
+.pd h2, h2.pd {
+  font-family: var(--pd-font-display);
+  font-weight: 800;
+  font-size: var(--pd-text-h2);
+  line-height: var(--pd-leading-tight);
+  letter-spacing: var(--pd-tracking-head);
+  margin: 0;
+}
+.pd h3, h3.pd {
+  font-family: var(--pd-font-display);
+  font-weight: 600;
+  font-size: var(--pd-text-h3);
+  margin: 0;
+}
+.pd p, p.pd { font-size: var(--pd-text-body); line-height: var(--pd-leading-body); margin: 0; }
+.pd-lead { font-size: var(--pd-text-lead); line-height: 1.45; }
+.pd-small { font-size: var(--pd-text-small); }
+
+/* ============================================================
+   COMPONENT PRIMITIVES
+   ============================================================ */
+
+/* Rounded card — the workhorse container */
+.pd-card {
+  background: var(--pd-white);
+  border: var(--pd-border);
+  border-radius: var(--pd-radius-lg);
+  box-shadow: var(--pd-shadow-soft);
+  padding: var(--pd-space-4);
+}
+
+/* Sticker badge — tilted, chunky outline */
+.pd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--pd-space-1);
+  font-family: var(--pd-font-display);
+  font-weight: 600;
+  font-size: var(--pd-text-badge);
+  color: var(--pd-ink);
+  background: var(--pd-yellow);
+  border: var(--pd-border);
+  border-radius: var(--pd-radius-pill);
+  padding: 6px 16px;
+  box-shadow: var(--pd-shadow-sticker);
+  white-space: nowrap;
+  transform: rotate(var(--pd-tilt-l));
+}
+.pd-badge--sky   { background: var(--pd-sky); }
+.pd-badge--teal  { background: var(--pd-teal); color: var(--pd-ink); }
+.pd-badge--coral { background: var(--pd-coral); color: var(--pd-ink); }
+.pd-badge--grape { background: var(--pd-grape); color: #fff; }
+.pd-badge--tilt-r { transform: rotate(var(--pd-tilt-r)); }
+
+/* Primary button — Maggie-style chunky pill with solid teal drop-shadow */
+.pd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pd-space-1);
+  font-family: var(--pd-font-display);
+  font-weight: 400;
+  font-size: var(--pd-text-body);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--pd-ink);
+  background: var(--pd-teal);
+  border: 3px solid var(--pd-ink);
+  border-radius: var(--pd-radius-pill);
+  padding: 16px 38px;
+  box-shadow: -3px 6px 0 var(--pd-ink);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+.pd-btn:hover  { transform: translate(1px,-2px); box-shadow: -4px 9px 0 var(--pd-ink); }
+.pd-btn:active { transform: translate(-2px,5px); box-shadow: -1px 2px 0 var(--pd-ink); }
+.pd-btn--mint     { background: var(--pd-teal); }
+.pd-btn--aqua     { background: var(--pd-sky); }
+.pd-btn--pink     { background: var(--pd-coral); }
+.pd-btn--lavender { background: var(--pd-grape); }
+.pd-btn--yellow   { background: var(--pd-yellow); }
+.pd-btn--sky      { background: var(--pd-sky); }
+.pd-btn--rose     { background: var(--pd-grape); color: #fff; border-color: var(--pd-ink); box-shadow: -3px 6px 0 var(--pd-ink); }
+
+/* Speech bubble — for chatty narration / the cat talking */
+.pd-bubble {
+  position: relative;
+  display: inline-block;
+  background: var(--pd-white);
+  border: var(--pd-border);
+  border-radius: var(--pd-radius-lg);
+  padding: var(--pd-space-3) var(--pd-space-4);
+  box-shadow: var(--pd-shadow-soft);
+  font-family: var(--pd-font-body);
+  font-weight: 600;
+}
+.pd-bubble::after {
+  content: "";
+  position: absolute;
+  left: 42px; bottom: -18px;
+  width: 26px; height: 26px;
+  background: var(--pd-white);
+  border-right: var(--pd-border);
+  border-bottom: var(--pd-border);
+  border-bottom-right-radius: 6px;
+  transform: rotate(45deg);
+}
+
+/* Dotted trail — connect elements like footprints on a map */
+.pd-trail {
+  border: none;
+  border-top: 5px dotted var(--pd-orange);
+  margin: var(--pd-space-3) 0;
+}
+
+/* Tinted info panel */
+.pd-panel {
+  background: var(--pd-sky-tint);
+  border: var(--pd-border);
+  border-radius: var(--pd-radius-lg);
+  padding: var(--pd-space-4);
+}
+
+/* ============================================================
+   STORYBOOK POP — depth, scatter & motion utility layer
+   Bold colour-blocking, dimensional cards, confetti, big type.
+   Use on slides/posters where you want energy, not just tidiness.
+   ============================================================ */
+
+/* --- Big organic background blobs (layer behind content) --- */
+.pd-blob {
+  position: absolute;
+  border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
+  z-index: 0;
+  pointer-events: none;
+}
+.pd-blob--yellow { background: var(--pd-yellow); }
+.pd-blob--orange { background: var(--pd-orange); }
+.pd-blob--sky    { background: var(--pd-sky); }
+.pd-blob--teal   { background: var(--pd-teal); }
+.pd-blob--coral  { background: var(--pd-coral); }
+.pd-blob--grape  { background: var(--pd-grape); }
+.pd-blob--ring   { background: transparent; border: 14px solid var(--pd-yellow); }
+
+/* A giant arch / sun peeking from an edge */
+.pd-arch {
+  position: absolute;
+  border-radius: 999px 999px 0 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- Dimensional pop card: thick outline + layered shadow --- */
+.pd-pop-card {
+  position: relative;
+  background: var(--pd-white);
+  border: 5px solid var(--pd-ink);
+  border-radius: var(--pd-radius-lg);
+  box-shadow: var(--pd-shadow-pop);
+  padding: var(--pd-space-4);
+  z-index: 2;
+}
+
+/* --- Multi-colour expressive display word helpers --- */
+.pd-word { font-family: var(--pd-font-display); font-weight: 800; line-height: 1.04; letter-spacing: 0.02em; display: inline-block; white-space: nowrap; }
+.pd-ink-stroke { -webkit-text-stroke: 4px var(--pd-ink); paint-order: stroke fill; }
+.pd-c-yellow { color: var(--pd-yellow); }
+.pd-c-orange { color: var(--pd-orange); }
+.pd-c-sky    { color: var(--pd-sky); }
+.pd-c-teal   { color: var(--pd-teal); }
+.pd-c-coral  { color: var(--pd-coral); }
+.pd-c-grape  { color: var(--pd-grape); }
+
+/* --- Confetti scatter --- *
+ * Put .pd-confetti (absolutely-filling, z-index 1) inside a stage and let the
+ * deck's confetti script populate it, OR drop .pd-cf children by hand. */
+.pd-confetti { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.pd-cf { position: absolute; will-change: transform; }
+.pd-dot { border-radius: 999px; }
+
+/* --- Gentle, child-friendly motion --- */
+@keyframes pd-float   { 0%,100% { transform: translateY(0) rotate(var(--cf-rot,0deg)); } 50% { transform: translateY(-14px) rotate(calc(var(--cf-rot,0deg) + 8deg)); } }
+@keyframes pd-bob     { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes pd-pop-in  { 0% { transform: scale(0.6) translateY(24px); opacity: 0; } 70% { transform: scale(1.06) translateY(-4px); opacity: 1; } 100% { transform: scale(1) translateY(0); opacity: 1; } }
+@keyframes pd-spin-slow { to { transform: rotate(360deg); } }
+
+.pd-anim-float { animation: pd-float 5s ease-in-out infinite; }
+.pd-anim-bob   { animation: pd-bob 4s ease-in-out infinite; }
+
+/* Staggered entrance — the deck adds .pd-enter to the active slide; children
+ * with [data-pop] pop in one after another. Honours reduced-motion. */
+.pd-enter [data-pop] { opacity: 0; }
+.pd-enter.pd-go [data-pop] { animation: pd-pop-in 620ms cubic-bezier(.34,1.56,.64,1) both; }
+.pd-enter.pd-go [data-pop="2"] { animation-delay: 110ms; }
+.pd-enter.pd-go [data-pop="3"] { animation-delay: 220ms; }
+.pd-enter.pd-go [data-pop="4"] { animation-delay: 330ms; }
+.pd-enter.pd-go [data-pop="5"] { animation-delay: 440ms; }
+.pd-enter.pd-go [data-pop="6"] { animation-delay: 550ms; }
+.pd-enter.pd-go [data-pop="7"] { animation-delay: 660ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-anim-float, .pd-anim-bob { animation: none; }
+  .pd-enter.pd-go [data-pop] { animation: none; opacity: 1; }
+}
+

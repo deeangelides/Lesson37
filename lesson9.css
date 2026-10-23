@@ -1,0 +1,224 @@
+/* ============================================================
+   LESSON 9 — "Wild Files: Meet the Meerkat" · KALAHARI SAFARI
+   A NEW information-text unit. Same Playful Detective layout
+   system as the space lessons (rounded cards, thick outlines,
+   soft drops, chunky Bowlby headings, pill badges, playful
+   tilts) — but a warm KALAHARI palette: sunset ambers, savanna
+   gold, acacia green, terracotta, sandy cream & deep meerkat
+   brown linework. Cheerful, storybook, never scary.
+   British English throughout.
+
+   Loads AFTER lesson5.css + lesson6.css and RE-SKINS them by
+   overriding the --sp-* tokens, so every structural class
+   (.pad .sp-card .eyebrow .item .roundel .mission .tip …) keeps
+   working but wears desert colours. New slide shells: .savanna,
+   .savanna-deep, .savanna-cream.
+   ============================================================ */
+
+:root {
+  /* ---- Kalahari working palette (re-skins the space tokens) ---- */
+  --sp-ink:      #4A2A12;   /* deep meerkat brown — outlines & text on light */
+  --sp-ink-soft: #6E4522;
+  --sp-cream:    #FBF1DC;   /* warm sand cream page */
+  --sp-white:    #FFFFFF;
+
+  --sp-gold:     #F7B32B;   /* savanna sun gold — LEAD */
+  --sp-gold-dk:  #D98A15;
+  --sp-coral:    #F3936B;   /* terracotta sunset */
+  --sp-coral-dk: #D65B33;
+  --sp-aqua:     #7FC9A6;   /* fresh acacia-leaf mint */
+  --sp-aqua-dk:  #2E9268;
+  --sp-mars:     #E9622C;   /* hot sunset orange */
+  --sp-mars-dk:  #C0431A;
+
+  --sp-violet:   #B5651D;   /* warm amber-brown (numbers, arrows, table heads) */
+  --sp-lav:      #8FB865;   /* acacia green */
+  --sp-lav-soft: #C4DCA0;
+
+  /* tints (soft card fills) */
+  --sp-tint-lav:   #E9F1DA;   /* pale green */
+  --sp-tint-gold:  #FCEEC6;   /* pale sand-gold */
+  --sp-tint-coral: #FBE0D3;   /* pale terracotta */
+  --sp-tint-aqua:  #DCF1E6;   /* pale mint */
+  --sp-tint-mars:  #FBDDC9;   /* pale sunset */
+
+  /* shadows in deep-brown ink */
+  --sp-shadow-pop:  0 14px 0 rgba(60,32,10,.14), 0 26px 50px rgba(60,32,10,.30);
+  --sp-shadow-card: 0 10px 30px rgba(60,32,10,.26);
+  --sp-drop:        0 7px 0 rgba(60,32,10,.26);
+}
+
+/* ============================================================
+   SLIDE SHELLS — warm desert skies (replace the cosmic ones)
+   ============================================================ */
+/* DEEP — title / dividers / closing: dramatic Kalahari sunset */
+.slide.savanna-deep {
+  color:#fff;
+  background:
+    radial-gradient(120% 90% at 50% 118%, #FFD35E 0%, #FFB13C 20%, #F07A2A 46%, #D8511F 70%, #A5371A 100%);
+}
+/* MID — activity slides: soft sunny sky over warm sand */
+.slide.savanna {
+  color:var(--sp-ink);
+  background:
+    radial-gradient(130% 88% at 50% 128%, #F2C97A 0%, #F4D99B 30%, transparent 62%),
+    linear-gradient(180deg, #BFE8EE 0%, #E9F1E0 42%, #F6E7C4 78%, #F0D69C 100%);
+}
+/* CREAM — plain warm page for busy grammar slides */
+.slide.savanna-cream { background:var(--sp-cream); color:var(--sp-ink); }
+
+/* baked sun-dust specks (very subtle, warm) */
+.slide.savanna::before, .slide.savanna-deep::before {
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:
+    radial-gradient(2px 2px at 14% 30%, rgba(255,255,255,.7), transparent),
+    radial-gradient(2px 2px at 72% 20%, rgba(255,244,214,.7), transparent),
+    radial-gradient(2.5px 2.5px at 40% 72%, rgba(255,255,255,.55), transparent),
+    radial-gradient(2px 2px at 86% 60%, rgba(255,244,214,.55), transparent),
+    radial-gradient(2px 2px at 24% 84%, rgba(255,255,255,.5), transparent);
+}
+.slide.savanna .lead { color:var(--sp-ink); text-shadow:none; }
+.slide.savanna-deep .lead { color:#fff; text-shadow:0 2px 14px rgba(120,50,10,.4); }
+
+/* restyle the reusable star-field script output → floating warm dust motes */
+.slide.savanna .tw.dot, .slide.savanna-deep .tw.dot { background:rgba(255,246,220,.85); }
+.slide.savanna .tw.spark, .slide.savanna-deep .tw.spark { background:var(--sp-gold);
+  clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%); }
+
+/* a warm horizon "sun" glow tint override */
+.glow      { background:radial-gradient(circle, rgba(247,179,43,.42) 0%, rgba(247,179,43,0) 66%); }
+.glow.gold { background:radial-gradient(circle, rgba(255,211,94,.55) 0%, rgba(255,211,94,0) 68%); }
+.glow.lav  { background:radial-gradient(circle, rgba(143,184,101,.40) 0%, rgba(143,184,101,0) 66%); }
+.glow.mars { background:radial-gradient(circle, rgba(233,98,44,.42) 0%, rgba(233,98,44,0) 66%); }
+.orbit { border-color:rgba(255,255,255,.28); }
+
+/* big display colours for hero words */
+.pd-c-sand  { color:#FBE7C0; }
+.pd-c-gold  { color:var(--sp-gold); }
+.pd-c-white { color:#fff; }
+.pd-c-green { color:#BFE08A; }
+.pd-c-sun   { color:#FFE08A; }
+.ink-stroke { -webkit-text-stroke:5px var(--sp-ink); paint-order:stroke fill; }
+
+/* the eyebrow inherits new palette; add a green variant */
+.eyebrow.green { background:var(--sp-lav); color:var(--sp-ink); }
+.eyebrow.sun   { background:var(--sp-gold); color:var(--sp-ink); }
+
+/* ============================================================
+   GRAMMAR COLOUR CODES — Lesson 9
+   present perfect = green · past perfect = plum ·
+   conjunction = sunset orange · main clause = teal-blue ·
+   subordinate clause = amber-brown · relative clause = rose ·
+   comma = teal
+   ============================================================ */
+.g-pp    { color:#2E7D52; font-weight:700; }   /* present perfect */
+.g-pastp { color:#7A4FB0; font-weight:700; }   /* past perfect */
+.g-conj  { color:var(--sp-mars-dk); font-weight:700; }  /* conjunctions */
+.g-main  { color:#2A7DA6; font-weight:700; }   /* main clause */
+.g-sub   { color:#B5651D; font-weight:700; }   /* subordinate clause */
+.g-rel   { color:#C13E6A; font-weight:700; }   /* relative clause */
+.g-comma { color:#2E9268; font-weight:700; }   /* commas */
+.g-fact  { color:var(--sp-gold-dk); font-weight:700; }  /* key fact word */
+
+/* highlight runs in the article */
+.hl-pp    { color:#1c5e3a; background:#D6F0DF; box-shadow:0 0 0 2px #9BD9B4 inset; }
+.hl-pastp { color:#4a2a7a; background:#EBE1FA; box-shadow:0 0 0 2px #CBB6F0 inset; }
+.hl-conj  { color:#9a3410; background:var(--sp-tint-mars); box-shadow:0 0 0 2px #F4B58F inset; }
+.hl-sub   { color:#7a4413; background:var(--sp-tint-gold);  box-shadow:0 0 0 2px #EBC988 inset; }
+.hl-rel   { color:#9a2b52; background:#FBDCE7; box-shadow:0 0 0 2px #F2AEC6 inset; }
+.hl-key   { color:#7a4413; background:#FDE7B3; box-shadow:0 0 0 2px #F4C766 inset; }
+
+/* inserted-comma / apostrophe chip */
+.cma { display:inline-block; color:#1c6b49; background:var(--sp-tint-aqua);
+  border:3px solid #2E9268; border-radius:8px; padding:0 .28em; margin:0 .04em;
+  font-weight:800; line-height:1; box-shadow:0 3px 0 rgba(60,32,10,.18); transform:translateY(-1px); }
+
+/* small label pill used on teach cards */
+.owner-tag { display:inline-flex; align-items:center; gap:9px;
+  font-family:var(--pd-font-display); font-weight:700; font-size:23px; letter-spacing:.03em;
+  text-transform:uppercase; color:var(--sp-ink); background:#fff;
+  border:4px solid var(--sp-ink); border-radius:999px; padding:6px 20px; box-shadow:var(--sp-drop); }
+
+/* before → after transform row for teach cards */
+.trans { display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.trans .from { font-size:24px; font-weight:600; color:var(--sp-ink-soft); font-style:italic; }
+.trans .to   { font-size:26px; font-weight:700; color:var(--sp-ink); }
+.trans .ar   { font-family:var(--pd-font-display); font-size:30px; color:var(--sp-violet); }
+
+/* ============================================================
+   ⚡ FIELD CHALLENGE — re-skin lesson6's .mission for the article
+   ============================================================ */
+.mission { background:var(--sp-tint-gold); }
+.mission .mtag { background:var(--sp-mars); }
+.mission .mtag::before { content:""; }
+
+/* ============================================================
+   SUBHEADING chip inside the article (models "text features")
+   ============================================================ */
+.subhead { display:inline-flex; align-items:center; gap:12px;
+  font-family:var(--pd-font-display); font-weight:700; font-size:30px; color:#fff;
+  background:var(--sp-aqua-dk); border:4px solid var(--sp-ink); border-radius:16px;
+  padding:8px 22px; box-shadow:var(--sp-drop); transform:rotate(-1deg); }
+.subhead.gold { background:var(--sp-gold-dk); }
+.subhead.mars { background:var(--sp-mars); }
+.subhead.green{ background:var(--sp-aqua-dk); }
+
+/* photo frame — chunky white polaroid for the real meerkat photos */
+.photo { display:block; border:6px solid #fff; border-radius:22px;
+  box-shadow:var(--sp-shadow-pop); object-fit:cover; background:#fff; }
+.photo-cap { display:block; font-family:var(--pd-font-body); font-weight:700; font-size:20px;
+  color:var(--sp-ink); text-align:center; margin-top:12px; }
+
+/* ============================================================
+   AFRICA MAP — spotlight the 3 Kalahari countries
+   ============================================================ */
+.mapwrap { position:relative; display:inline-block; border:6px solid var(--sp-ink);
+  border-radius:26px; overflow:hidden; box-shadow:var(--sp-shadow-pop); background:#DCEFF4; }
+.mapwrap img { display:block; width:100%; height:100%; }
+/* dim veil so highlights pop */
+.mapwrap .veil { position:absolute; inset:0; background:rgba(74,42,18,.10); pointer-events:none; }
+/* a glowing ring pinned over a country (positioned by left/top %) */
+.pin { position:absolute; transform:translate(-50%,-50%); z-index:3; }
+.pin .ring { width:118px; height:118px; border-radius:50%;
+  border:7px solid var(--sp-gold); background:rgba(247,179,43,.22);
+  box-shadow:0 0 0 6px rgba(255,255,255,.5), 0 0 34px 8px rgba(247,179,43,.75);
+  animation:kal-pulse 2.4s ease-in-out infinite; }
+.pin .ring.thin { border-width:4px; background:rgba(247,179,43,.14);
+  box-shadow:0 0 0 3px rgba(255,255,255,.45), 0 0 26px 5px rgba(247,179,43,.7); }
+.pin .plabel { position:absolute; left:50%; transform:translateX(-50%);
+  font-family:var(--pd-font-display); font-weight:700; font-size:24px; white-space:nowrap;
+  color:var(--sp-ink); background:var(--sp-gold); border:4px solid var(--sp-ink);
+  border-radius:999px; padding:5px 18px; box-shadow:var(--sp-drop); }
+.pin .plabel.below { top:78px; }
+.pin .plabel.above { bottom:78px; }
+/* numbered country marker (matches the key roundels) */
+.mapnum { width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
+  font-family:var(--pd-font-display); font-weight:700; font-size:20px; color:var(--sp-ink);
+  background:radial-gradient(circle at 36% 28%, color-mix(in srgb, var(--badge,var(--sp-gold)) 62%, #fff) 0 14%, var(--badge,var(--sp-gold)) 52%, color-mix(in srgb, var(--badge,var(--sp-gold)) 72%, var(--sp-ink)) 100%);
+  border:3px solid var(--sp-ink); box-shadow:0 3px 0 rgba(60,32,10,.35), 0 0 0 3px rgba(255,255,255,.7);
+  animation:kal-pulse 2.4s ease-in-out infinite; }
+@keyframes kal-pulse { 0%,100% { transform:scale(1); opacity:.95; } 50% { transform:scale(1.12); opacity:.7; } }
+@media (prefers-reduced-motion: reduce) { .pin .ring { animation:none; } }
+
+/* legend dot for grammar keys */
+.keydot { display:inline-flex; align-items:center; gap:10px; font-size:22px; font-weight:700;
+  color:var(--sp-ink); }
+.keydot i { width:24px; height:24px; border-radius:7px; border:3px solid var(--sp-ink); display:inline-block; }
+
+/* flying birds — gentle looping soar for decorative bird PNGs */
+@keyframes kal-soar {
+  0%   { transform:translate(0,0) rotate(0deg); }
+  25%  { transform:translate(90px,-26px) rotate(-3deg); }
+  50%  { transform:translate(190px,10px) rotate(2deg); }
+  75%  { transform:translate(90px,30px) rotate(-2deg); }
+  100% { transform:translate(0,0) rotate(0deg); }
+}
+.kbird { animation:kal-soar 11s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .kbird { animation:none; } }
+
+/* motif drop-shadow warm */
+.slide.savanna .motif, .slide.savanna-deep .motif, .slide.savanna-cream .motif {
+  filter:drop-shadow(0 12px 16px rgba(90,45,12,.35)); }
+
+/* cream-slide lead colour */
+.slide.savanna-cream .lead { color:var(--sp-ink); }

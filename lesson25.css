@@ -1,0 +1,54 @@
+/* ============================================================
+   LESSON 25 — Welcome Back! The San People (review lesson)
+   Kalahari skin (lesson9.css) + review question parts.
+   Requires: colors_and_type.css, lesson5.css, lesson6.css, lesson9.css
+   ============================================================ */
+/* section header row */
+.sec-row { display:flex; align-items:center; gap:24px; margin-right:260px; }
+.sec-badge { font-family:var(--pd-font-display); font-weight:700; font-size:36px; color:var(--sp-ink); background:var(--hue,var(--sp-gold)); border:5px solid var(--sp-ink); border-radius:22px; width:86px; height:86px; display:grid; place-items:center; flex:none; box-shadow:var(--sp-drop); transform:rotate(-3deg); }
+.sec-name { font-family:var(--pd-font-display); font-weight:800; font-size:48px; line-height:1.04; color:var(--sp-ink); flex:1; }
+.sec-note { font-family:var(--pd-font-body); font-weight:700; font-size:24px; color:var(--sp-ink-soft); background:#fff; border:4px solid var(--sp-ink); border-radius:999px; padding:8px 22px; box-shadow:var(--sp-drop); flex:none; white-space:nowrap; }
+
+/* two-part question cards */
+.parts { display:flex; gap:26px; align-items:stretch; margin-top:22px; max-width:1470px; }
+.parts > .sp-card { flex:1; min-width:0; padding:22px 34px 24px; }
+.part-h { display:flex; align-items:center; gap:13px; margin:0 0 12px; }
+.part-h .pl { flex:none; font-family:var(--pd-font-display); font-size:25px; color:var(--sp-ink); background:var(--hue,var(--sp-gold)); border:4px solid var(--sp-ink); border-radius:12px; width:46px; height:46px; display:grid; place-items:center; box-shadow:0 4px 0 rgba(60,32,10,.22); transform:rotate(-2deg); }
+.part-h .pt { font-family:var(--pd-font-display); font-size:24px; color:var(--sp-ink); line-height:1.18; }
+.qlist { font-size:26px; font-weight:600; line-height:1.7; margin:0; color:var(--sp-ink); }
+.qlist .n { font-family:var(--pd-font-display); color:var(--sp-mars-dk); margin-right:.4em; }
+.qlist u { text-decoration-thickness:4px; text-underline-offset:5px; text-decoration-color:var(--sp-mars); font-weight:800; }
+.tag { font-style:italic; color:var(--sp-coral-dk); font-weight:700; font-size:.8em; white-space:nowrap; }
+.ablank { display:inline-block; min-width:170px; border-bottom:6px dotted #D6B27E; height:.9em; vertical-align:-2px; }
+.ablank.xs { min-width:90px; }
+.rewrite { display:block; height:0; border-bottom:5px dotted #D6B27E; margin:10px 0 16px; }
+.arrow { font-family:var(--pd-font-display); color:var(--sp-mars-dk); padding:0 .22em; }
+
+/* article prose + photo mats */
+.reading { font-size:25px; }
+.cover-frame { display:block; border:7px solid #FFFEF8; border-radius:10px; overflow:hidden; position:relative; background:#FFFEF8; box-shadow:0 0 0 4px var(--sp-ink), var(--sp-shadow-pop); }
+.cover-frame img { display:block; width:100%; height:100%; object-fit:cover; }
+
+/* tracker footprint trail (San = master trackers) */
+.trail { position:absolute; z-index:2; display:flex; gap:34px; pointer-events:none; opacity:.55; }
+.trail img { width:38px; height:auto; }
+.trail img:nth-child(even) { transform:translateY(22px) rotate(12deg); }
+.trail img:nth-child(odd) { transform:rotate(-6deg); }
+
+/* checklist for the writing task */
+.ticks { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+.ticks li { display:flex; align-items:center; gap:16px; font-size:25px; font-weight:700; color:var(--sp-ink); }
+.ticks li::before { content:""; flex:none; width:34px; height:34px; border:4px solid var(--sp-ink); border-radius:10px; background:#fff; box-shadow:0 3px 0 rgba(60,32,10,.22); }
+.writelines { display:flex; flex-direction:column; gap:36px; margin-top:26px; }
+.writelines span { display:block; border-bottom:5px dotted #D6B27E; }
+
+/* small ruled-note tutor card */
+.tutor { font-size:22px; font-weight:600; line-height:1.45; color:var(--sp-ink-soft); }
+
+/* rock-art silhouettes (kalahari/rockart/*.svg) */
+.rock { position:absolute; z-index:2; pointer-events:none; opacity:.9; filter:drop-shadow(0 4px 0 rgba(60,32,10,.18)); }
+.rock.faint { opacity:.28; filter:none; }
+.slide.savanna-deep .rock { filter:drop-shadow(0 3px 0 rgba(0,0,0,.25)); }
+.rockband { position:absolute; left:0; right:0; bottom:0; height:120px; z-index:2; pointer-events:none; display:flex; align-items:flex-end; justify-content:space-evenly; padding:0 60px 18px; opacity:.55; }
+.rockband img { height:80px; width:auto; }
+.rockband img.lg { height:100px; }

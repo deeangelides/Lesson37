@@ -1,0 +1,36 @@
+/* LESSON 35 — Salvador Dalí (Dream-desert skin: big blue sky, golden sand horizon, drifting dream things)
+   Requires: colors_and_type.css, lesson5/6/9/25/26/30/32/33/34.css. Use with the gh-* text rules. */
+:root{--dl-sky:#1E78B4;--dl-sand:#FFD86B;}
+/* POP — big blue dream sky with a golden desert strip (title, dividers, closing) */
+.slide.dl-pop{background:linear-gradient(180deg,#1E78B4 0%,#1E78B4 84%,#0C5A48 84%,#0C5A48 84.5%,#FFD86B 84.5%,#FFD86B 100%);}
+/* DREAM — pale sky over sand, for article + rule slides */
+.slide.dl-dream{background:linear-gradient(180deg,#E3F5FD 0%,#E3F5FD 88%,#FFF5CC 88%,#FFF5CC 100%);}
+.slide.dl-dream::after{content:"";position:absolute;left:0;right:0;top:88%;border-top:6px dotted rgba(12,90,72,.35);pointer-events:none;}
+/* SAND — lemon block with gold + aqua dots, for practice slides */
+.slide.dl-sand{background-color:#FFF5CC;background-image:radial-gradient(circle,#fff 0 7px,transparent 8px),radial-gradient(circle,#8FD3F4 0 5px,transparent 6px);background-size:180px 180px;background-position:0 0,90px 90px;}
+.slide.dl-paper{background:var(--sp-cream);}
+.slide.dl-pop .eyebrow.gold{box-shadow:var(--sp-drop);}
+.slide.dl-pop .lead{color:#fff;text-shadow:0 2px 12px rgba(12,40,70,.45);}
+.slide.dl-dream .sec-name,.slide.dl-sand .sec-name{background:#fff;border:5px solid var(--sp-ink);border-radius:20px;padding:10px 22px;flex:0 1 auto;}
+.slide.dl-dream .photo-cap,.slide.dl-sand .photo-cap,.slide.dl-paper .photo-cap{background:#fff;border:3px solid var(--sp-ink);border-radius:999px;padding:4px 16px;display:table;margin:12px auto 0;white-space:nowrap;color:var(--sp-ink);}
+.subhead.blue{background:var(--dl-sky);}
+
+/* drifting dream things around the edges (filled by script) */
+.drift{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.drift i{position:absolute;font-style:normal;line-height:1;animation:dldrift 9s ease-in-out infinite alternate;filter:drop-shadow(0 4px 0 rgba(12,90,72,.18));}
+@keyframes dldrift{0%{transform:translateY(0) rotate(var(--r,0deg));}100%{transform:translateY(-22px) rotate(calc(var(--r,0deg) + 10deg));}}
+
+/* figures of speech */
+.fig-row{display:flex;flex-wrap:wrap;gap:14px;}
+.fig{font-family:var(--pd-font-display);font-size:26px;color:var(--sp-ink);background:#fff;border:4px solid var(--sp-ink);border-radius:999px;padding:6px 20px;box-shadow:var(--sp-drop);transform:rotate(var(--tilt,-1.5deg));}
+.huge-ex{font-family:var(--pd-font-display);font-size:58px;line-height:1.1;color:var(--sp-ink);margin:0;}
+.huge-ex em{font-style:normal;color:var(--sp-mars-dk);}
+.say{font-size:30px;font-weight:700;color:var(--sp-ink);margin:10px 0 0;}
+.say b{color:var(--dl-sky);}
+.ans-line{display:inline-block;min-width:300px;border-bottom:4px dotted rgba(12,90,72,.45);height:1.1em;vertical-align:baseline;margin-left:10px;}
+.qbig{font-size:30px;font-weight:700;line-height:1.45;color:var(--sp-ink);margin:0;display:grid;grid-template-columns:auto 1fr;gap:14px 16px;align-items:baseline;}
+.qbig .n{font-family:var(--pd-font-display);color:var(--dl-sky);}
+.check{font-size:28px;font-weight:700;color:var(--sp-ink);display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none;}
+.check li{display:flex;gap:14px;align-items:center;}
+.check li::before{content:"";flex:none;width:30px;height:30px;border:4px solid var(--sp-ink);border-radius:8px;background:#fff;}
+@media (prefers-reduced-motion:reduce){.drift i{animation:none;}}

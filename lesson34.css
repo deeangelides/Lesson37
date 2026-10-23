@@ -1,0 +1,38 @@
+/* LESSON 34 — Takashi Murakami (Superflat skin: smiling flowers, candy colour blocks)
+   Requires: colors_and_type.css, lesson5/6/9/25/26/30.css, lesson32.css, lesson33.css. Use with the gh-* text rules. */
+:root{--mk-magenta:#C2456A;--mk-red:#E9524A;
+--mk-dots:radial-gradient(circle,#fff 0 7px,transparent 8px),radial-gradient(circle,#FFD86B 0 6px,transparent 7px),radial-gradient(circle,#8FD3F4 0 5px,transparent 6px),radial-gradient(circle,#84E6A4 0 5px,transparent 6px);}
+/* POP — bold magenta block for title, dividers, closing (white + gold text) */
+.slide.mk-pop{background:radial-gradient(45% 40% at 90% 0%,rgba(255,216,107,.25) 0%,transparent 70%),linear-gradient(160deg,#C2456A 0%,#B23A5E 100%);}
+/* LEMON — sunny yellow for article + rule slides */
+.slide.mk-lemon{background:linear-gradient(180deg,#FFF5CC 0%,#FFEFA8 100%);}
+/* CONFETTI — lavender block with candy dots, for practice slides */
+.slide.mk-confetti{background-color:#E9E0FF;background-image:var(--mk-dots);background-size:180px 180px;background-position:0 0,90px 90px,45px 130px,135px 40px;}
+.slide.mk-paper{background:var(--sp-cream);}
+.slide.mk-pop .eyebrow.gold{box-shadow:var(--sp-drop);}
+.slide.mk-pop .lead{color:#fff;text-shadow:0 2px 12px rgba(80,10,40,.45);}
+.slide.mk-lemon .sec-name,.slide.mk-confetti .sec-name{background:#fff;border:5px solid var(--sp-ink);border-radius:20px;padding:10px 22px;flex:0 1 auto;}
+.slide.mk-lemon .photo-cap,.slide.mk-confetti .photo-cap,.slide.mk-paper .photo-cap{background:#fff;border:3px solid var(--sp-ink);border-radius:999px;padding:4px 16px;display:table;margin:12px auto 0;white-space:nowrap;color:var(--sp-ink);}
+.subhead.pink{background:var(--mk-magenta);}
+
+/* smiling Superflat-style flowers around the edges (filled by script).
+   font-size = face diameter; petals are box-shadows set by script */
+.blooms{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.blooms .fl{position:absolute;width:1em;height:1em;border-radius:50%;background:#fff;border:.055em solid #0C5A48;box-sizing:border-box;}
+.blooms .fl::before{content:"";position:absolute;left:.22em;top:.24em;width:.11em;height:.15em;border-radius:50%;background:#0C5A48;box-shadow:.36em 0 0 #0C5A48;}
+.blooms .fl::after{content:"";position:absolute;left:.2em;right:.2em;top:.46em;height:.3em;background:var(--m,#E9524A);border:.045em solid #0C5A48;border-radius:.06em .06em 1em 1em/.06em .06em .7em .7em;}
+.blooms .fl.spin{animation:flspin 14s linear infinite;}
+@keyframes flspin{to{transform:rotate(360deg);}}
+
+/* modal cards */
+.modal-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px;}
+.modal-row .m{font-family:var(--pd-font-display);font-size:40px;color:var(--sp-ink);background:#fff;border:5px solid var(--sp-ink);border-radius:20px;padding:6px 24px;box-shadow:var(--sp-drop);transform:rotate(var(--tilt,-1.5deg));}
+.ex{font-size:28px;font-weight:700;line-height:1.55;color:var(--sp-ink);margin:18px 0 0;}
+.ex em{font-style:normal;color:var(--sp-mars-dk);font-weight:700;}
+/* one / many agreement pairs */
+.agree{display:grid;grid-template-columns:auto 1fr;gap:14px 28px;align-items:center;justify-content:start;}
+.agree .who{font-family:var(--pd-font-display);font-size:30px;color:var(--sp-ink);}
+.agree .vb{font-size:30px;font-weight:700;color:var(--sp-ink);white-space:nowrap;}
+.agree .vb b{color:var(--sp-mars-dk);}
+.wrong{text-decoration:line-through;text-decoration-color:var(--mk-red);text-decoration-thickness:4px;}
+@media (prefers-reduced-motion:reduce){.blooms .fl.spin{animation:none;}}

@@ -1,0 +1,249 @@
+/* ============================================================
+   LESSON 5 — "The Long Way to the Red Planet" · SPACE MISSION
+   Same Playful Detective layout system as Lessons 1–4 (rounded
+   cards, thick dark outlines, soft drop shadows, chunky Bowlby
+   headings, pill section badges, playful tilts) — but a deep-space
+   NIGHT palette: indigo cosmos, lavender astronaut purples, gold
+   stars, coral & aqua pops, plus a warm Mars-orange. Friendly,
+   storybook, never scary. British English throughout.
+   Differentiator shapes vs L4's pitch stripes/bunting: a twinkling
+   STAR FIELD, rocket trail dotted lines, planet roundels, and a
+   soft comet glow. Art = the lavender flat-cartoon space stickers.
+   ============================================================ */
+
+:root {
+  /* ---- Space working palette (harmonised w/ brand candy pastels) ---- */
+  --sp-indigo:    #1B1240;   /* deepest cosmos */
+  --sp-indigo-2:  #241A52;   /* ink / outlines (matches sticker linework) */
+  --sp-purple:    #2E2168;   /* mid space */
+  --sp-purple-2:  #3A2A7A;
+  --sp-violet:    #6C4FD8;   /* bright cosmic violet */
+  --sp-lav:       #A27CFF;   /* astronaut-suit lavender — LEAD */
+  --sp-lav-soft:  #C9B8FF;
+
+  --sp-ink:       #241A52;   /* near-black indigo — outlines & text on light */
+  --sp-cream:     #FBF6E9;   /* warm light page */
+  --sp-white:     #FFFFFF;
+
+  --sp-gold:      #FFC93C;   /* bright star gold */
+  --sp-gold-dk:   #F2A900;
+  --sp-coral:     #FF8FB8;   /* soft pink pop */
+  --sp-coral-dk:  #E0588E;
+  --sp-aqua:      #6FE3DE;   /* fresh aqua pop */
+  --sp-aqua-dk:   #2BA8A2;
+  --sp-mars:      #FF7A3D;   /* the red planet — warm orange-red */
+  --sp-mars-dk:   #D9531C;
+
+  /* tints (soft card fills) */
+  --sp-tint-lav:   #ECE6FF;
+  --sp-tint-gold:  #FFF1C9;
+  --sp-tint-coral: #FFE1EC;
+  --sp-tint-aqua:  #D8F7F4;
+  --sp-tint-mars:  #FFE2D2;
+
+  /* shadows in deep-indigo ink */
+  --sp-shadow-pop:  0 14px 0 rgba(20,12,48,.16), 0 26px 50px rgba(20,12,48,.40);
+  --sp-shadow-card: 0 10px 30px rgba(20,12,48,.34);
+  --sp-drop:        0 7px 0 rgba(20,12,48,.30);
+}
+
+/* ============================================================
+   SLIDE SHELLS — cosmic gradients + baked starfield
+   ============================================================ */
+.slide { position:absolute; inset:0; font-family:var(--pd-font-body); color:var(--sp-ink); overflow:hidden; }
+.slide.cream { background:var(--sp-cream); color:var(--sp-ink); }
+
+/* DEEP space — title / dividers / closing (darkest, most dramatic) */
+.slide.space-deep {
+  color:#fff;
+  background:
+    radial-gradient(115% 80% at 50% -16%, rgba(162,124,255,.34), transparent 56%),
+    radial-gradient(150% 130% at 50% 44%, #2c2068 0%, #1d1448 48%, #120c30 100%);
+}
+/* MID space — activity slides (a touch lighter, violet wash) */
+.slide.space {
+  color:#fff;
+  background:
+    radial-gradient(105% 72% at 82% -8%, rgba(255,143,184,.22), transparent 52%),
+    radial-gradient(120% 120% at 18% 110%, rgba(111,227,222,.16), transparent 52%),
+    radial-gradient(150% 130% at 50% 40%, #382a82 0%, #281c64 52%, #1a1242 100%);
+}
+/* twinkly star dust baked into every space slide (very subtle) */
+.slide.space::before, .slide.space-deep::before {
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.6;
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 22%, rgba(255,255,255,.9), transparent),
+    radial-gradient(1.5px 1.5px at 78% 14%, rgba(255,255,255,.8), transparent),
+    radial-gradient(2px 2px   at 34% 68%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 62% 82%, rgba(255,255,255,.75), transparent),
+    radial-gradient(1.5px 1.5px at 90% 56%, rgba(255,255,255,.7), transparent),
+    radial-gradient(2px 2px   at 8% 80%,  rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(255,255,255,.7), transparent),
+    radial-gradient(1.5px 1.5px at 24% 44%, rgba(255,255,255,.6), transparent);
+}
+
+.pad { position:absolute; inset:0; padding:78px 104px; box-sizing:border-box; display:flex; flex-direction:column; z-index:4; }
+
+.slide.space .lead, .slide.space-deep .lead { color:rgba(255,255,255,.95); text-shadow:0 2px 14px rgba(12,8,32,.5); }
+.on-dark { color:#fff; }
+
+/* ============================================================
+   TYPE
+   ============================================================ */
+h1.title { font-family:var(--pd-font-display); font-weight:800; font-size:96px; line-height:1.08; letter-spacing:.02em; margin:0; }
+h2.head  { font-family:var(--pd-font-display); font-weight:800; font-size:60px; line-height:1.12; letter-spacing:.02em; margin:0; }
+.lead    { font-size:34px; font-weight:600; line-height:1.4; color:var(--pd-ink-soft); }
+.reading { font-size:33px; font-weight:500; line-height:1.5; color:var(--sp-ink); }
+h1.title .pd-word { -webkit-text-stroke:0; }
+
+/* Space display colours for big multi-colour words */
+.pd-c-lav   { color:var(--sp-lav); }
+.pd-c-gold  { color:var(--sp-gold); }
+.pd-c-white { color:#fff; }
+.pd-c-coral { color:var(--sp-coral); }
+.pd-c-aqua  { color:var(--sp-aqua); }
+.pd-c-mars  { color:var(--sp-mars); }
+.ink-stroke { -webkit-text-stroke:5px var(--sp-ink); paint-order:stroke fill; }
+
+/* ============================================================
+   EYEBROW — "🚀 SPACE MISSION · LESSON 5" section badge
+   ============================================================ */
+.eyebrow {
+  display:inline-flex; align-items:center; gap:13px; align-self:flex-start; white-space:nowrap;
+  font-family:var(--pd-font-display); font-weight:700; font-size:27px; color:var(--sp-ink);
+  letter-spacing:.05em; text-transform:uppercase;
+  background:#fff; border:5px solid var(--sp-ink); border-radius:999px;
+  padding:11px 30px; box-shadow:0 8px 0 rgba(20,12,48,.28); transform:rotate(-1.5deg);
+}
+.eyebrow.gold  { background:var(--sp-gold); }
+.eyebrow.lav   { background:var(--sp-lav);  color:#fff; }
+.eyebrow.coral { background:var(--sp-coral); color:var(--sp-ink); }
+.eyebrow.aqua  { background:var(--sp-aqua); color:var(--sp-ink); }
+.eyebrow.mars  { background:var(--sp-mars); color:#fff; }
+.eyebrow.tilt-r { transform:rotate(1.5deg); }
+
+/* ============================================================
+   STAR FIELD — twinkling scatter (filled by deck script)
+   <div class="starfield" data-stars="N"></div>
+   ============================================================ */
+.starfield { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.tw { position:absolute; will-change:transform, opacity; }
+.tw.dot { border-radius:999px; background:#fff; }
+/* 4-point sparkle star */
+.tw.spark { background:var(--sp-gold);
+  clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%); }
+@keyframes sp-twinkle { 0%,100% { opacity:.25; transform:scale(.7); } 50% { opacity:1; transform:scale(1.15); } }
+
+/* large soft glows (planet light / comet halo) */
+.glow { position:absolute; border-radius:50%; z-index:0; pointer-events:none;
+  background:radial-gradient(circle, rgba(255,201,60,.30) 0%, rgba(255,201,60,0) 66%); }
+.glow.lav   { background:radial-gradient(circle, rgba(162,124,255,.40) 0%, rgba(162,124,255,0) 66%); }
+.glow.coral { background:radial-gradient(circle, rgba(255,143,184,.34) 0%, rgba(255,143,184,0) 66%); }
+.glow.mars  { background:radial-gradient(circle, rgba(255,122,61,.36) 0%, rgba(255,122,61,0) 66%); }
+
+/* faint dotted orbit ring */
+.orbit { position:absolute; border-radius:50%; border:5px dotted rgba(255,255,255,.16); z-index:0; pointer-events:none; }
+
+/* ============================================================
+   PLANET ROUNDEL number badge
+   ============================================================ */
+.roundel { position:relative; flex:none; width:94px; height:94px; border-radius:50%; transform:rotate(-4deg);
+  background:radial-gradient(circle at 36% 28%, color-mix(in srgb, var(--badge,var(--sp-gold)) 62%, #fff) 0 14%, var(--badge,var(--sp-gold)) 50%, color-mix(in srgb, var(--badge,var(--sp-gold)) 70%, var(--sp-ink)) 100%);
+  border:5px solid var(--sp-ink); box-shadow:var(--sp-drop); display:grid; place-items:center; }
+.roundel::before { content:""; position:absolute; left:18%; top:13%; width:30%; height:24%; border-radius:50%;
+  background:linear-gradient(140deg, rgba(255,255,255,.85), transparent 70%); }
+.roundel .num { font-family:var(--pd-font-display); font-weight:700; font-size:42px; color:var(--sp-ink); }
+.roundel.sm { width:72px; height:72px; }
+.roundel.sm .num { font-size:32px; }
+
+/* coloured icon circle (warm-up chat cards) */
+.iconcircle { flex:none; width:108px; height:108px; border-radius:50%; display:grid; place-items:center;
+  font-size:58px; border:5px solid var(--sp-ink); box-shadow:var(--sp-drop); background:var(--sp-gold); }
+.iconcircle.lav  { background:var(--sp-lav); }
+.iconcircle.coral{ background:var(--sp-coral); }
+.iconcircle.aqua { background:var(--sp-aqua); }
+.iconcircle.mars { background:var(--sp-mars); }
+
+/* ============================================================
+   CARDS — rounded space-station panels (thick outline + drop)
+   ============================================================ */
+.sp-card { position:relative; background:#fff; border:5px solid var(--sp-ink); color:var(--sp-ink);
+  border-radius:34px; box-shadow:var(--sp-shadow-pop); padding:var(--pd-space-4); }
+.sp-card.tint-lav   { background:var(--sp-tint-lav); }
+.sp-card.tint-gold  { background:var(--sp-tint-gold); }
+.sp-card.tint-coral { background:var(--sp-tint-coral); }
+.sp-card.tint-aqua  { background:var(--sp-tint-aqua); }
+.sp-card.tint-mars  { background:var(--sp-tint-mars); }
+
+/* item rows — rounded pill with roundel/icon badge */
+.itemlist { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:22px; }
+.item { position:relative; display:flex; align-items:center; gap:26px;
+  background:#fff; border:5px solid var(--sp-ink); border-radius:999px;
+  box-shadow:var(--sp-shadow-pop); padding:18px 38px;
+  font-size:32px; font-weight:600; line-height:1.25; color:var(--sp-ink); }
+.item:nth-child(odd)  { transform:rotate(-.6deg); }
+.item:nth-child(even) { transform:rotate(.6deg); }
+.itemlist.compact .item { padding:15px 30px; font-size:28px; gap:20px; border-radius:30px; }
+.item .body { flex:1; }
+
+/* fact / definition "tip" pill */
+.tip { display:inline-flex; align-items:center; gap:12px; font-weight:700; font-size:28px; color:var(--sp-ink);
+  background:#fff; border:4px solid var(--sp-ink); border-radius:999px; padding:9px 26px; box-shadow:var(--sp-drop); }
+.tip b { font-family:var(--pd-font-display); font-weight:700; }
+
+.chip-tag { font-family:var(--pd-font-display); font-weight:700; font-size:25px; color:var(--sp-ink);
+  background:#fff; border:4px solid var(--sp-ink); border-radius:999px; padding:10px 24px; box-shadow:var(--sp-drop); }
+
+/* ============================================================
+   GRAMMAR COLOUR CODES
+   their=lav · there=aqua · they're=coral ·  pronouns=violet
+   direct speech marks = gold · linking words = mars
+   ============================================================ */
+.g-their { color:#6A45D8; font-weight:700; }
+.g-there { color:#1F8F89; font-weight:700; }
+.g-theyre{ color:var(--sp-coral-dk); font-weight:700; }
+.g-pro   { color:#6A45D8; font-weight:700; }
+.g-link  { color:var(--sp-mars-dk); font-weight:700; }
+.g-speech{ color:#B07900; font-weight:700; }
+
+.hl { font-weight:700; padding:.02em .22em; border-radius:8px; }
+.hl-key   { color:#5b3a00; background:#FFE9A8; box-shadow:0 0 0 2px #FFD45E inset; }
+.hl-their { color:#3f2596; background:var(--sp-tint-lav);   box-shadow:0 0 0 2px #C9B8FF inset; }
+.hl-there { color:#0f6d68; background:var(--sp-tint-aqua);  box-shadow:0 0 0 2px #9BE7E2 inset; }
+.hl-theyre{ color:#a02d63; background:var(--sp-tint-coral); box-shadow:0 0 0 2px #FFB3D1 inset; }
+
+/* ============================================================
+   TABLES — rounded cosmic grid (pronoun family / homophones)
+   ============================================================ */
+.sp-table { width:100%; border-collapse:separate; border-spacing:0; }
+.sp-table th, .sp-table td {
+  border:4px solid var(--sp-ink); padding:15px 22px; font-size:27px; font-weight:600; text-align:left; background:#fff; color:var(--sp-ink); }
+.sp-table th { font-family:var(--pd-font-display); font-weight:700; font-size:25px; color:#fff; background:var(--sp-violet); }
+.sp-table tr th:first-child { border-top-left-radius:22px; }
+.sp-table tr th:last-child  { border-top-right-radius:22px; }
+.sp-table tr:last-child td:first-child { border-bottom-left-radius:22px; }
+.sp-table tr:last-child td:last-child  { border-bottom-right-radius:22px; }
+.sp-table .seed { font-family:var(--pd-font-display); font-weight:700; color:var(--sp-violet); }
+.sp-table .eg   { font-style:italic; color:var(--pd-ink-soft); }
+.sp-table .write { color:#a99fce; font-size:24px; letter-spacing:.05em; }
+.sp-table.tight th, .sp-table.tight td { padding:11px 18px; font-size:23px; }
+.sp-table.tight th { font-size:21px; }
+
+/* ============================================================
+   FILL-IN blanks & write lines
+   ============================================================ */
+.blank { display:inline-block; min-width:200px; border-bottom:6px dotted var(--sp-lav); height:.9em; vertical-align:-2px; }
+.writeline { display:block; height:0; border-bottom:5px dotted #b3a9d6; margin:26px 0; }
+.arrow { font-family:var(--pd-font-display); color:var(--sp-violet); padding:0 .22em; }
+
+/* checklist row */
+.check { display:flex; align-items:flex-start; gap:18px; font-size:28px; font-weight:600; line-height:1.35; color:var(--sp-ink); }
+.check .box { flex:none; width:38px; height:38px; border:4px solid var(--sp-ink); border-radius:9px; background:#fff; margin-top:3px; box-shadow:0 4px 0 rgba(20,12,48,.22); }
+
+/* speech-mark rule card numbering */
+.rule-no { font-family:var(--pd-font-display); font-weight:700; font-size:30px; color:#fff;
+  background:var(--sp-violet); border:4px solid var(--sp-ink); border-radius:14px;
+  width:54px; height:54px; display:grid; place-items:center; flex:none; box-shadow:var(--sp-drop); transform:rotate(-3deg); }
+
+/* motif images */
+.motif { z-index:5; filter:drop-shadow(0 12px 18px rgba(12,8,32,.45)); }
